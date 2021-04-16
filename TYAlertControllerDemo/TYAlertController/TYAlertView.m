@@ -138,6 +138,10 @@
     _buttonCancelBgColor = [UIColor colorWithRed:127/255.0 green:140/255.0 blue:141/255.0 alpha:1];
     _buttonDestructiveBgColor = [UIColor colorWithRed:231/255.0 green:76/255.0 blue:60/255.0 alpha:1];
     
+    _buttonDefaultTitleColor = [UIColor whiteColor];
+    _buttonCancelTitleColor = [UIColor whiteColor];
+    _buttonCancelTitleColor = [UIColor whiteColor];
+
     _textFieldHeight = kTextFieldHeight;
     _textFieldEdge = kTextFieldEdge;
     _textFieldBorderWidth = KTextFieldBorderWidth;
@@ -149,6 +153,22 @@
     
     _buttons = [NSMutableArray array];
     _actions = [NSMutableArray array];
+}
+
+
+- (UIColor *)buttonTitleColorWithStyle:(TYAlertActionStyle)style
+{
+    switch (style) {
+        case TYAlertActionStyleDefault:
+            return _buttonDefaultTitleColor;
+        case TYAlertActionStyleCancel:
+            return _buttonCancelTitleColor;
+        case TYAlertActionStyleDestructive:
+            return _buttonDestructiveTitleColor;
+            
+        default:
+            return nil;
+    }
 }
 
 - (UIColor *)buttonBgColorWithStyle:(TYAlertActionStyle)style
@@ -218,6 +238,7 @@
     [button setTitle:action.title forState:UIControlStateNormal];
     button.titleLabel.font = _buttonFont;
     button.backgroundColor = [self buttonBgColorWithStyle:action.style];
+    [button setTitleColor:[self buttonTitleColorWithStyle:action.style] forState:UIControlStateNormal];
     button.enabled = action.enabled;
     button.tag = kButtonTagOffset + _buttons.count;
     button.translatesAutoresizingMaskIntoConstraints = NO;
