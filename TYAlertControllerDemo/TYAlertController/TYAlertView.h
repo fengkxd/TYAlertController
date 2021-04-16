@@ -39,7 +39,13 @@ typedef NS_ENUM(NSUInteger, TYAlertActionStyle) {
 // contentView space custom
 @property (nonatomic, assign) CGFloat contentViewSpace;
 
+
+// titleLabel custom
+
+@property (nonatomic, assign) CGFloat titleLabelTopSpace;
+
 // textLabel custom
+
 @property (nonatomic, assign) CGFloat textLabelSpace;
 @property (nonatomic, assign) CGFloat textLabelContentViewEdge;
 

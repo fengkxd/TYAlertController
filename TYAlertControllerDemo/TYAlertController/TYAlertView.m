@@ -332,7 +332,7 @@
     }
     // title
     _titleLable.translatesAutoresizingMaskIntoConstraints = NO;
-    [_textContentView addConstraintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edgeInset:UIEdgeInsetsZero];
+    [_textContentView addConstraintWithView:_titleLable topView:_textContentView leftView:_textContentView bottomView:nil rightView:_textContentView edgeInset:UIEdgeInsetsMake(_titleLabelTopSpace, 0, 0, 0)];
     
     // message
     _messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
